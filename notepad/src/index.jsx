@@ -10,7 +10,6 @@ const App = () => {
   const [notes, setNotes] = React.useState(localStorage.notes? JSON.parse(localStorage.notes):[]);
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
-  const [activeNote, setActiveNote] = useState(false);
 
   React.useEffect(()=>{
     localStorage.setItem("notes", JSON.stringify(notes));
@@ -24,7 +23,6 @@ const App = () => {
       date: new Date(Date.now()).toLocaleDateString('fr-FR'),
     };
     setNotes([NewNote, ...notes]);
-    setActiveNote(newNote.id);
   }
   
   const SelectNote =(id) =>{
